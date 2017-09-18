@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS event(
   start_time TIMESTAMP,
   price VARCHAR(255),
   details TEXT,
-  image_url VARCHAR(255),
+  image_url VARCHAR(2048),
   genre VARCHAR(255));
 
 DROP TABLE IF EXISTS member;
