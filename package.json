@@ -1,0 +1,45 @@
+{
+  "name": "simple_bookstore_2",
+  "version": "1.0.0",
+  "description": "Flyers.ai",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:init": "dropdb events; createdb events; psql events < ./src/models/schema/schema.sql; psql events < ./src/models/schema/load-data.sql",
+    "db:drop": "dropdb events",
+    "db:create": "createdb events",
+    "schema:update": "psql events < ./src/models/schema/schema.sql",
+    "db:seed": "psql events < ./src/models/schema/load-data.sql"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eobaah/simple_bookstore_2.git"
+  },
+  "author": "Fodé Diop and Eugene Baah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eobaah/simple_bookstore_2/issues"
+  },
+  "homepage": "https://github.com/eobaah/simple_bookstore_2#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.1",
+    "connect-pg-simple": "^4.2.1",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "pg-promise": "^6.7.1",
+    "postgresql": "0.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.7.0",
+    "eslint-plugin-import": "^2.7.0",
+    "morgan": "^1.8.2",
+    "nodemon": "^1.12.1"
+  }
+}
