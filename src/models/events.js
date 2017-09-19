@@ -40,7 +40,7 @@ const edit = ( id, event ) => {
 }
 
 const remove =  id  => {
-  return db.none( ` DELETE FROM event WHERE id=$1
+  return db.oneOrNone( ` DELETE FROM event WHERE id=$1
     RETURNING *`, [ id ])
     .catch( error => {
       console.log( "Remove event: ", error );
