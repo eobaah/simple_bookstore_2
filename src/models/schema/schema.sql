@@ -6,13 +6,13 @@ CREATE DATABASE events;
 DROP TABLE IF EXISTS event;
 CREATE TABLE IF NOT EXISTS event(
   id SERIAL PRIMARY KEY,
-  title VARCHAR(255),
-  venue VARCHAR(255),
+  title VARCHAR(1000),
+  venue VARCHAR(1000),
   event_date DATE,
   start_time TIMESTAMP,
   price VARCHAR(255),
   details TEXT,
-  image_url VARCHAR(255),
+  image_url VARCHAR(5000),
   genre VARCHAR(255));
 
 DROP TABLE IF EXISTS member;
