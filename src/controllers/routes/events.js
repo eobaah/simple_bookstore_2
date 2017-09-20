@@ -3,6 +3,7 @@ const { renderError } = require( '../utilities/utilities.js' )
 const events = require( '../../models/events.js' )
 const moment = require('moment');
 
+
 router.get('/', (request, response, next) => {
   events.getAll()
     .then( partyEvents => {
