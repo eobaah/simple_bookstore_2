@@ -1,16 +1,18 @@
 require('dotenv').config();
 const port = process.env.PORT;
 const express = require('express');
+const path = require('path');
 const app = express();
 const members = require('./src/controllers/routes/members')
 const events = require('./src/controllers/routes/events')
 const morgan = require( 'morgan' );
 const session = require( 'express-session' );
 const bodyParser = require( 'body-parser' );
+const ejsLint = require('ejs-lint');
 
+app.set( 'views', path.join( __dirname, '/src/views' ) );
 app.set( 'view engine', 'ejs' );
-app.set( 'views',__dirname + '/src/views' );
-app.use( express.static( 'public' ) );
+app.use( express.static( __dirname + '/src/public' ) );
 
 app.use( morgan( 'tiny' ) );
 
