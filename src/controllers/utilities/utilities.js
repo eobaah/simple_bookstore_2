@@ -6,4 +6,4 @@ const renderUnauthorized = ( response ) => {
   response.send('You do not have access to this page.' );
 }
 
-module.exports = {renderError, renderUnauthorized}
+module.exports = { renderError, renderUnauthorized }
