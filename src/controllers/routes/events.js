@@ -6,22 +6,21 @@ const moment = require('moment');
 router.get('/', (request, response, next) => {
   events.getAll()
     .then( events => {
-      response.send( events )
-    })
-})
-
-router.get('/:id', (request, response, next) => {
-  const id = request.params.id
-  events.getOne( id )
-    .then( event => {
-      response.send( event )
+      response.render( 'pages/events', events )
     })
 })
 
 router.post('/new', (request, response, next) => {
-  const event = request.body
-  console.log( "event:", event )
-  events.create( event )
+  const {
+    title,
+    venue,
+    event_date,
+    start_time,
+    price,
+    details,
+    image_url,
+    genre } = request.body
+  events.create( title, venue, event_date, start_time, price, details, image_url, genre )
     .then( event => {
       response.send( event )
     })
@@ -50,10 +49,19 @@ router.delete('/:id', (request, response, next) => {
 
 router.get('/find', (request, response, next) => {
   const query = request.query.input
+  console.log( "query:", query )
   events.search( query )
-    .then( events => {
-      console.log(events)
-      response.send( events )
+    .then( queryResults => {
+      console.log( queryResults )
+      response.send( queryResults )
+    })
+})
+
+router.get('/:id', (request, response, next) => {
+  const id = request.params.id
+  events.getOne( id )
+    .then( event => {
+      response.send( event )
     })
 })
 

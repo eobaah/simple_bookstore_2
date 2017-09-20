@@ -2,11 +2,15 @@ require('dotenv').config();
 const port = process.env.PORT;
 const express = require('express');
 const app = express();
+const members = require('./src/controllers/routes/members')
 const events = require('./src/controllers/routes/events')
 const morgan = require( 'morgan' );
 const session = require( 'express-session' );
 const bodyParser = require( 'body-parser' );
 
+app.set( 'view engine', 'ejs' );
+app.set( 'views',__dirname + '/src/views' );
+app.use( express.static( 'public' ) );
 
 app.use( morgan( 'tiny' ) );
 
@@ -18,15 +22,11 @@ app.use(session({
   cookie: { expires: 60000 }
 }));
 
-app.set( 'view engine', 'ejs' );
-app.set( 'views',__dirname + '/src/views' );
-app.use( express.static( 'public' ) );
-
 app.use( bodyParser.urlencoded( { extended: true } ) )
 app.use( bodyParser.json() )
 
-
-app.use('/events', events)
+app.use('/', events)
+app.use('/members', members)
 
 app.listen( port, () => {
   console.log(`Your app is available on port ${port}!`);
