@@ -5,8 +5,8 @@ const moment = require('moment');
 
 router.get('/', (request, response, next) => {
   events.getAll()
-    .then( events => {
-      response.render( 'pages/events', events )
+    .then( partyEvents => {
+      response.render( 'pages/events', {partyEvents} )
     })
 })
 
