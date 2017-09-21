@@ -1,11 +1,52 @@
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Hello edit</h1>
-</body>
-</html>
+<% include ../partials/header.ejs %>
+  <div class="events-main-wrapper">
+    <h1 class="single-event-title">
+      Update: <%= event.title %>
+    </h1>
+
+  <div class="flyer-edit-content-wrapper">
+    <form class="update-form" action="/events/edit/<%= event.id %>" data-id="<%= event.id %>">
+      <div class="update-title">
+        <label for="">Title:</label>
+        <input type="text" name="" value="<%= event.title %>">
+      </div>
+      <div class="update-venue">
+        <label for="">Venue:</label>
+        <input type="text" name="" value="<%= event.venue %>">
+      </div>
+      <div class="update-date">
+        <label for="">Event Date:</label>
+        <input type="text" name="" value="<%= event.event_date %>">
+      </div>
+      <div class="update-start">
+        <label for="">Start Time:</label>
+        <input type="text" name="" value="<%= event.start_time %>">
+      </div>
+      <div class="update-price">
+        <label for="">Price:</label>
+        <input type="text" name="" value="<%= event.price %>">
+      </div>
+      <div class="update-details">
+        <label for="">Details:</label>
+        <textarea rows="4" cols="50" name="details">
+          <%= event.details %>">
+        </textarea>
+      </div>
+      <div class="update-image_url">
+        <label for="">Image Url:</label>
+        <input type="text" name="" value="<%= event.image_url %>">
+      </div>
+      <div class="update-genre">
+        <label for="">Genre:</label>
+        <input type="text" name="" value="<%= event.genre %>">
+      </div>
+      <div class="edit-footer">
+        <input class="save-btn" type="submit" name="save" value="Save">
+        <a>
+          <i class="fa.fa-trash delete-btn" aria-hidden="true"></i>
+        </a>
+      </div>
+    </form>
+  </div>
+
+<% include ../partials/footer.ejs %>

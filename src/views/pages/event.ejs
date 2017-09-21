@@ -1,0 +1,28 @@
+<% include ../partials/header.ejs %>
+  <div class="events-main-wrapper">
+    <h1 class="single-event-title">
+      <%= event.title %>
+    </h1>
+
+  <div class="single-flyer-content-wrapper">
+    <div class="flyer-top-section">
+      <img class="single-flyer-image" src="<%= event.image_url %>" alt="">
+      <div class="flyer-info-section">
+        <span class="single-title-section"><%= event.title %></span>
+        <span class="single-venue-section"><%= event.venue %></span>
+        <span class="single-date-section"><%= event.event_date %></span>
+        <span class="single-start-section"><%= event.start_time %></span>
+        <span class="single-genre-section"><%= event.genre %></span>
+        <span class="single-price-section"><%= event.price %></span>
+      </div>
+    </div>
+    <div class="flyer-main-section">
+      <span class="single-price-section"><%= event.details %></span>
+    </div>
+    <div class=flyer-bottom-section>
+      <a href="/events/edit/<%= event.id %>"><i class="fa fa-pencil-square-o edit-btn" aria-hidden="true"></i></a>
+    </div>
+  </div>
+
+
+<% include ../partials/footer.ejs %>
