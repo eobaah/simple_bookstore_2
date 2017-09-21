@@ -1,6 +1,6 @@
 <% include ../partials/header.ejs %>
   <div class="events-main-wrapper">
-    <h1 class="events-title">Welcome to Flyers.ai</h1>
+    <h1 class="events-title">Search for nightlife events near you</h1>
 
     <form method="post" action="/events/find" class="search-form">
       <input name="input" type="search" placeholder="search events" value="" autofocus/>
@@ -10,13 +10,10 @@
 
   <div class="flyer-content-wrapper">
     <% partyEvents.forEach( function( partyEvent ) { %>
-    <a class="flyer">
+    <a class="flyer" href="/events/<%= partyEvent.id %>">
         <img class="flyer-cover" src="<%= partyEvent.image_url %>" alt="flyer image">
         <div class="event-title" >
           <%= partyEvent.title %>
-        </div>
-        <div class="event-price" >
-          <%= partyEvent.price %>
         </div>
     </a>
     <% } ) %>
