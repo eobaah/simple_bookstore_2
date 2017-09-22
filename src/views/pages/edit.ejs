@@ -5,7 +5,7 @@
     </h1>
 
   <div class="flyer-edit-content-wrapper">
-    <form class="update-form" action="/events/edit/<%= event.id %>" data-id="<%= event.id %>">
+    <form class="update-form" data-id="<%= event.id %>">
       <div class="update-title">
         <label for="">Title:</label>
         <input type="text" name="" value="<%= event.title %>">
@@ -41,9 +41,12 @@
         <input type="text" name="" value="<%= event.genre %>">
       </div>
       <div class="edit-footer">
-        <input class="save-btn" type="submit" name="save" value="Save">
-        <a>
-          <i class="fa.fa-trash delete-btn" aria-hidden="true"></i>
+        <!-- <input id="save" class="save-btn" type="submit" name="save" value="Save"> -->
+        <a class="save-btn">
+          <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        </a>
+        <a class="delete-btn">
+          <i class="fa fa-trash" aria-hidden="true"></i>
         </a>
       </div>
     </form>

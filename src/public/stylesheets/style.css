@@ -93,8 +93,12 @@ nav a {
   margin: 0 0 0 5%;
 }
 
-.flyer-main-section, .flyer-bottom-section {
+.flyer-main-section, .flyer-bottom-section, .edit-footer {
   margin: 5% 0 0 0;
+}
+
+.edit-footer {
+  align-items: center;
 }
 
 .single-flyer-image {
@@ -102,27 +106,32 @@ nav a {
   height: 100%;
 }
 
-.edit-btn {
+.edit-btn, .delete-btn, .save-btn {
+  cursor: pointer;
   font-size: 3em;
 }
+
 
 
 .flyer-edit-content-wrapper{
   display:flex;
   justify-content: center;
 }
+
 .update-form {
   display:flex;
   flex-direction: column;
   width: 40%;
 }
 
+
+
 form > div {
   display: flex;
   justify-content: space-between;
 }
 
-form > div > input {
+form > div > input, form > div > textarea {
   margin: 0 0 0 3%;
   width: 80%;
 }
